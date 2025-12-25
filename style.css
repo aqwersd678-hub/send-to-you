@@ -1,75 +1,173 @@
-body {
+/* RESET */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* BODY */
+body {
+  width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, #fff1f4, #fbeaea);
+  overflow: hidden;
+  background: #fdecef;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  font-family: Arial, sans-serif;
 }
 
-/* PHONG BÌ */
+/* NỀN DỊU – XOÁ VIỀN ĐEN */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #fdecef;
+  z-index: -1;
+}
+
+/* GỢI Ý */
+.hint {
+  position: fixed;
+  top: 7vh;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  letter-spacing: 0.6px;
+  z-index: 5;
+}
+
+/* ================= PHONG BÌ ================= */
 .envelope {
-  width: 280px;
-  height: 180px;
   position: relative;
+  width: 230px;      /* to hơn cho Pro Max */
+  height: 150px;
   cursor: pointer;
-  perspective: 1000px;
+  z-index: 6;
 }
 
 .envelope .body {
+  position: absolute;
   width: 100%;
   height: 100%;
-  background: #f4b6c2;
-  border-radius: 8px;
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
 }
 
 .envelope .flap {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: #f7c6d0;
+  background: #f8c8d8;
+  clip-path: polygon(0 0, 50% 58%, 100% 0);
   transform-origin: top;
-  transition: transform 1s;
-  border-radius: 8px;
+  transition: transform 1s ease;
 }
 
+/* MỞ PHONG BÌ */
 .envelope.open .flap {
   transform: rotateX(180deg);
 }
 
-/* ẢNH */
-/* ẢNH – ƯU TIÊN MOBILE */
+/* ================= ẢNH ================= */
 #viewer {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 92vw;            /* 👈 hợp với điện thoại */
-  height: 85vh;
-  transform: translate(-50%, -50%);
-  display: none;
-  object-fit: contain;    /* giữ tỉ lệ ảnh */
-  background: rgba(0,0,0,0.92);
-  border-radius: 14px;
+  inset: 0;
+  margin: auto;
+
+  max-width: 88vw;
+  max-height: 82vh;
+  object-fit: contain;
+
   opacity: 0;
-  transition: opacity 0.45s ease;
+  transform: scale(0.975);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+  display: none;
+  z-index: 10;
+  pointer-events: auto;
 }
 
+/* ẢNH HIỆN DỊU */
 #viewer.show {
   opacity: 1;
+  transform: scale(1);
 }
 
+/* ================= CÂU HỎI ================= */
+.question-box {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  text-align: center;
+}
 
-/* CÂU HỎI */
-.question-box,
+.question-text {
+  font-size: 19px; /* to hơn cho Pro Max */
+  color: #fff;
+  margin-bottom: 26px;
+  padding: 0 26px;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons button {
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 26px;
+  border: none;
+  font-weight: 500;
+}
+
+#yesBtn {
+  background: #f4b6c2;
+  color: #000;
+}
+
+#noBtn {
+  background: #aaa;
+  color: #666;
+}
+
+/* ================= LỜI KẾT ================= */
 .final-box {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.8);
-  color: white;
+  background: #fdecef;
   display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  z-index: 30;
+  text-align: center;
+  padding: 24px;
 }
+
+.final-box img {
+  max-width: 80vw;
+  max-height: 58vh;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.final-box p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.65;
+}
+
