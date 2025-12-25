@@ -1,4 +1,3 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +5,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* BODY */
 body {
   width: 100vw;
   height: 100vh;
@@ -18,15 +16,6 @@ body {
   align-items: center;
 }
 
-/* NỀN DỊU – XOÁ VIỀN ĐEN */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: #fdecef;
-  z-index: -1;
-}
-
 /* GỢI Ý */
 .hint {
   position: fixed;
@@ -35,21 +24,19 @@ body::before {
   text-align: center;
   font-size: 16px;
   color: #555;
-  letter-spacing: 0.6px;
   z-index: 5;
 }
 
-/* ================= PHONG BÌ ================= */
+/* ===== PHONG BÌ ===== */
 .envelope {
-  position: relative;
-  width: 230px;      /* to hơn cho Pro Max */
+  width: 230px;
   height: 150px;
+  position: relative;
   cursor: pointer;
   z-index: 6;
 }
 
 .envelope .body {
-  position: absolute;
   width: 100%;
   height: 100%;
   background: #fff;
@@ -59,92 +46,106 @@ body::before {
 
 .envelope .flap {
   position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: #f8c8d8;
   clip-path: polygon(0 0, 50% 58%, 100% 0);
   transform-origin: top;
   transition: transform 1s ease;
 }
 
-/* MỞ PHONG BÌ */
 .envelope.open .flap {
   transform: rotateX(180deg);
 }
 
-/* ================= ẢNH ================= */
+/* ===== ẢNH ===== */
 #viewer {
   position: fixed;
   inset: 0;
   margin: auto;
-
   max-width: 88vw;
   max-height: 82vh;
   object-fit: contain;
-
   opacity: 0;
-  transform: scale(0.975);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
-
+  transform: scale(0.97);
+  transition: opacity 1s ease, transform 1s ease;
   display: none;
   z-index: 10;
-  pointer-events: auto;
 }
 
-/* ẢNH HIỆN DỊU */
 #viewer.show {
   opacity: 1;
   transform: scale(1);
 }
 
-/* ================= CÂU HỎI ================= */
+/* ===== CÂU HỎI ===== */
 .question-box {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.55);
   display: none;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 20;
+}
+
+.question-card {
+  background: linear-gradient(135deg, #fdecef, #f6d8e7);
+  border-radius: 26px;
+  padding: 26px 22px 30px;
+  width: 82vw;
+  max-width: 340px;
   text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.butterfly {
+  width: 120px;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
 }
 
 .question-text {
-  font-size: 19px; /* to hơn cho Pro Max */
-  color: #fff;
-  margin-bottom: 26px;
-  padding: 0 26px;
-  line-height: 1.5;
+  font-size: 18px;
+  color: #7a3e6d;
+  margin-bottom: 22px;
 }
 
 .buttons {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 18px;
 }
 
 .buttons button {
-  padding: 14px 32px;
-  font-size: 16px;
+  padding: 12px 30px;
   border-radius: 26px;
   border: none;
-  font-weight: 500;
+  font-size: 15px;
 }
 
 #yesBtn {
-  background: #f4b6c2;
-  color: #000;
+  background: linear-gradient(135deg, #f4b6c2, #e89ac7);
+  color: #fff;
 }
 
 #noBtn {
-  background: #aaa;
-  color: #666;
+  background: #e0c9d6;
+  color: #a58aa0;
 }
 
-/* ================= LỜI KẾT ================= */
+/* ===== LỜI KẾT ===== */
 .final-box {
   position: fixed;
   inset: 0;
@@ -153,21 +154,20 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 30;
   text-align: center;
+  z-index: 30;
   padding: 24px;
 }
 
 .final-box img {
   max-width: 80vw;
   max-height: 58vh;
-  object-fit: contain;
   margin-bottom: 20px;
 }
 
 .final-box p {
   font-size: 16px;
   color: #333;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
