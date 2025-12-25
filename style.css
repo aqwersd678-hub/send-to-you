@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #fff1f4, #fbeaea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* PHONG BÌ */
+.envelope {
+  width: 280px;
+  height: 180px;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.envelope .body {
+  width: 100%;
+  height: 100%;
+  background: #f4b6c2;
+  border-radius: 8px;
+}
+
+.envelope .flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f7c6d0;
+  transform-origin: top;
+  transition: transform 1s;
+  border-radius: 8px;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+/* ẢNH */
+/* ẢNH – ƯU TIÊN MOBILE */
+#viewer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 92vw;            /* 👈 hợp với điện thoại */
+  height: 85vh;
+  transform: translate(-50%, -50%);
+  display: none;
+  object-fit: contain;    /* giữ tỉ lệ ảnh */
+  background: rgba(0,0,0,0.92);
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+#viewer.show {
+  opacity: 1;
+}
+
+
+/* CÂU HỎI */
+.question-box,
+.final-box {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
