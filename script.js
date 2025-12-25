@@ -1,16 +1,18 @@
-let stage = 0;
-/*
+/* ========= TRẠNG THÁI =========
 0 = chưa mở phong bì
 1 = đã mở phong bì
 2 = đang xem ảnh
 3 = câu hỏi
-*/
+================================ */
 
-let imgIndex = 0;
+let stage = 0;
+let index = 0;
 let canNext = false;
 
+/* DANH SÁCH ẢNH (1 → 4) */
 const images = ["1.png", "2.png", "3.png", "4.png"];
 
+/* LẤY ELEMENT */
 const envelope = document.getElementById("envelope");
 const viewer = document.getElementById("viewer");
 const hint = document.querySelector(".hint");
@@ -18,16 +20,18 @@ const questionBox = document.getElementById("questionBox");
 const finalBox = document.getElementById("finalBox");
 const yesBtn = document.getElementById("yesBtn");
 
-/* CLICK PHONG BÌ */
-envelope.addEventListener("click", (e) => {
+/* ===== CLICK PHONG BÌ ===== */
+envelope.onclick = (e) => {
   e.stopPropagation();
 
+  // CLICK LẦN 1 → MỞ PHONG BÌ
   if (stage === 0) {
     envelope.classList.add("open");
     stage = 1;
     return;
   }
 
+  // CLICK LẦN 2 → HIỆN ẢNH 1
   if (stage === 1) {
     envelope.style.display = "none";
     hint.style.display = "none";
@@ -35,32 +39,34 @@ envelope.addEventListener("click", (e) => {
     stage = 2;
     return;
   }
-});
+};
 
-/* HIỆN ẢNH 1 */
+/* ===== HIỆN ẢNH 1 ===== */
 function showFirstImage() {
-  imgIndex = 0;
-  viewer.src = images[imgIndex];
+  index = 0;
+  viewer.src = images[index];
   viewer.style.display = "block";
   viewer.classList.remove("show");
 
   setTimeout(() => {
     viewer.classList.add("show");
     canNext = true;
-  }, 150);
+  }, 120);
 }
 
-/* CLICK CHUYỂN ẢNH */
-document.body.addEventListener("click", () => {
+/* ===== CHẠM VÀO ẢNH → ĐỔI ẢNH (FIX MOBILE) ===== */
+viewer.onclick = (e) => {
+  e.stopPropagation();
   if (stage !== 2 || !canNext) return;
 
   canNext = false;
   viewer.classList.remove("show");
 
   setTimeout(() => {
-    imgIndex++;
-    if (imgIndex < images.length) {
-      viewer.src = images[imgIndex];
+    index++;
+
+    if (index < images.length) {
+      viewer.src = images[index];
       viewer.classList.add("show");
       canNext = true;
     } else {
@@ -69,11 +75,12 @@ document.body.addEventListener("click", () => {
       stage = 3;
     }
   }, 300);
-});
+};
 
-/* CLICK YES */
-yesBtn.addEventListener("click", (e) => {
+/* ===== CLICK YES ===== */
+yesBtn.onclick = (e) => {
   e.stopPropagation();
   questionBox.style.display = "none";
   finalBox.style.display = "flex";
-});
+};
+
