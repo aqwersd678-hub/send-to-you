@@ -6,71 +6,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+  <!-- GỢI Ý -->
   <div class="hint">phải mở thui</div>
 
-<!-- PHONG BÌ CON MÈO -->
-<div class="envelope cat-envelope" id="envelope">
 
-  <!-- ĐẦU MÈO -->
-  <div class="cat-head">
-    <div class="cat-ear ear-left"></div>
-    <div class="cat-ear ear-right"></div>
+  <!-- =========================
+       PHONG BÌ CON MÈO
+  ========================== -->
 
-    <div class="cat-face">
-      <div class="cat-eye eye-left"></div>
-      <div class="cat-eye eye-right"></div>
+  <div class="envelope cat-envelope" id="envelope">
 
-      <div class="cat-nose"></div>
-      <div class="cat-mouth"></div>
+    <!-- ĐẦU MÈO -->
+    <div class="cat-head">
 
-      <div class="whisker w1"></div>
-      <div class="whisker w2"></div>
-      <div class="whisker w3"></div>
-      <div class="whisker w4"></div>
-    </div>
-  </div>
+      <div class="cat-ear ear-left"></div>
+      <div class="cat-ear ear-right"></div>
 
-  <!-- THÂN PHONG BÌ -->
-  <div class="body"></div>
+      <div class="cat-face">
 
-  <!-- NẮP PHONG BÌ -->
-  <div class="flap"></div>
+        <div class="cat-eye eye-left"></div>
+        <div class="cat-eye eye-right"></div>
 
-  <!-- CHÂN MÈO -->
-  <div class="cat-paw paw-left">🐾</div>
-  <div class="cat-paw paw-right">🐾</div>
+        <div class="cat-nose"></div>
+        <div class="cat-mouth"></div>
 
-</div>
+        <div class="whisker w1"></div>
+        <div class="whisker w2"></div>
+        <div class="whisker w3"></div>
+        <div class="whisker w4"></div>
 
-<!-- HIỆU ỨNG HOA -->
-<div id="flowerLayer"></div>
-
-<img id="viewer" />
-
-  <!-- HỘP CÂU HỎI -->
-  <div id="questionBox" class="question-box">
-    <div class="question-card">
-      <img src="6.png" class="butterfly" />
-      <p class="question-text">Tiểu thư có muốn từ chối không?</p>
-      <div class="buttons">
-        <button id="yesBtn">YESN'T</button>
-        <button id="noBtn" disabled>NON'T</button>
       </div>
     </div>
+
+
+    <!-- THÂN PHONG BÌ -->
+    <div class="body"></div>
+
+
+    <!-- NẮP PHONG BÌ -->
+    <div class="flap"></div>
+
+
+    <!-- CHÂN MÈO -->
+    <div class="cat-paw paw-left">🐾</div>
+    <div class="cat-paw paw-right">🐾</div>
+
   </div>
 
-  <!-- LỜI KẾT -->
-  <div id="finalBox" class="final-box">
-    <img src="5.png" />
-    <p>
-      Ủa có tham gia hỏ hihi cảm ơn <b>CÔNG CHÚA</b> đã vui vẻ đồng ý tình cảm của <b>“tấm thân nhỏ bé”</b> nhé.<br>
-      Mong sẽ thấy em với bộ đồ anh tặng và hộp quà anh trao 💗
-    </p>
+
+  <!-- =========================
+       HIỆU ỨNG HOA
+  ========================== -->
+
+  <div id="flowerLayer"></div>
+
+
+  <!-- =========================
+       ẢNH
+  ========================== -->
+
+  <img id="viewer" />
+
+
+  <!-- =========================
+       HỘP CÂU HỎI
+  ========================== -->
+
+  <div id="questionBox" class="question-box">
+
+    <div class="question-card">
+
+      <img src="6.png" class="butterfly" />
+
+      <p class="question-text">
+        Tiểu thư có muốn từ chối không?
+      </p>
+
+      <div class="buttons">
+
+        <button id="yesBtn">
+          YESN'T
+        </button>
+
+        <button id="noBtn" disabled>
+          NON'T
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
+
+
+  <!-- =========================
+       LỜI KẾT
+  ========================== -->
+
+  <div id="finalBox" class="final-box">
+
+    <img src="5.png" />
+
+    <p>
+      Ủa có tham gia hỏ hihi cảm ơn
+      <b>CÔNG CHÚA</b>
+      đã vui vẻ đồng ý tình cảm của
+      <b>“tấm thân nhỏ bé”</b>
+      nhé.
+      <br>
+      Mong sẽ thấy em với bộ đồ anh tặng
+      và hộp quà anh trao 💗
+    </p>
+
+  </div>
+
 
   <script src="script.js"></script>
+
 </body>
 </html>
-
