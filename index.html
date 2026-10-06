@@ -10,76 +10,111 @@
 <body>
 
   <!-- GỢI Ý -->
-  <div class="hint">phải mở thui</div>
+  <div class="hint">
+    phải mở thui
+  </div>
 
 
-  <!-- =========================
-       PHONG BÌ CON MÈO
-  ========================== -->
+  <!-- =================================
+       BÌ THƯ CON MÈO
+  ================================== -->
 
-  <div class="envelope cat-envelope" id="envelope">
+  <div
+    class="cat-envelope"
+    id="envelope"
+  >
 
-    <!-- ĐẦU MÈO -->
-    <div class="cat-head">
+    <!-- TAI MÈO -->
+    <div class="cat-ear ear-left">
+      <div class="inner-ear"></div>
+    </div>
 
-      <div class="cat-ear ear-left"></div>
-      <div class="cat-ear ear-right"></div>
+    <div class="cat-ear ear-right">
+      <div class="inner-ear"></div>
+    </div>
 
+
+    <!-- THÂN BÌ THƯ -->
+    <div class="envelope-body">
+
+      <!-- MẶT TRƯỚC -->
+      <div class="envelope-front"></div>
+
+      <!-- ĐƯỜNG GẤP -->
+      <div class="envelope-fold left-fold"></div>
+      <div class="envelope-fold right-fold"></div>
+
+    </div>
+
+
+    <!-- NẮP BÌ THƯ + MẶT MÈO -->
+    <div class="cat-flap">
+
+      <!-- MẶT -->
       <div class="cat-face">
 
         <div class="cat-eye eye-left"></div>
         <div class="cat-eye eye-right"></div>
 
-        <div class="cat-nose"></div>
-        <div class="cat-mouth"></div>
+        <div class="cat-blush blush-left"></div>
+        <div class="cat-blush blush-right"></div>
 
-        <div class="whisker w1"></div>
-        <div class="whisker w2"></div>
-        <div class="whisker w3"></div>
-        <div class="whisker w4"></div>
+        <div class="cat-nose"></div>
+
+        <div class="cat-mouth left-mouth"></div>
+        <div class="cat-mouth right-mouth"></div>
+
+        <div class="whisker whisker-1"></div>
+        <div class="whisker whisker-2"></div>
+        <div class="whisker whisker-3"></div>
+        <div class="whisker whisker-4"></div>
 
       </div>
+
     </div>
 
 
-    <!-- THÂN PHONG BÌ -->
-    <div class="body"></div>
-
-
-    <!-- NẮP PHONG BÌ -->
-    <div class="flap"></div>
-
-
     <!-- CHÂN MÈO -->
-    <div class="cat-paw paw-left">🐾</div>
-    <div class="cat-paw paw-right">🐾</div>
+    <div class="cat-paw paw-left">
+      🐾
+    </div>
+
+    <div class="cat-paw paw-right">
+      🐾
+    </div>
 
   </div>
 
 
-  <!-- =========================
-       HIỆU ỨNG HOA
-  ========================== -->
+  <!-- =================================
+       HOA
+  ================================== -->
 
   <div id="flowerLayer"></div>
 
 
-  <!-- =========================
+  <!-- =================================
        ẢNH
-  ========================== -->
+  ================================== -->
 
   <img id="viewer" />
 
 
-  <!-- =========================
-       HỘP CÂU HỎI
-  ========================== -->
+  <!-- =================================
+       CÂU HỎI
+  ================================== -->
 
-  <div id="questionBox" class="question-box">
+  <div
+    id="questionBox"
+    class="question-box"
+  >
 
     <div class="question-card">
 
-      <img src="6.png" class="butterfly" />
+      <img
+        src="6.png"
+        class="butterfly"
+      />
 
       <p class="question-text">
         Tiểu thư có muốn từ chối không?
@@ -91,7 +126,10 @@
           YESN'T
         </button>
 
-        <button id="noBtn" disabled>
+        <button
+          id="noBtn"
+          disabled
+        >
           NON'T
         </button>
 
@@ -102,11 +140,14 @@
   </div>
 
 
-  <!-- =========================
+  <!-- =================================
        LỜI KẾT
-  ========================== -->
+  ================================== -->
 
-  <div id="finalBox" class="final-box">
+  <div
+    id="finalBox"
+    class="final-box"
+  >
 
     <img src="5.png" />
 
