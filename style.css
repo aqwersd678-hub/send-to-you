@@ -1,3 +1,7 @@
+/* ========================================
+   RESET
+======================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -5,43 +9,84 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+
+/* ========================================
+   BODY
+======================================== */
+
 body {
   width: 100vw;
   height: 100vh;
+
   overflow: hidden;
+
   background: #fdecef;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* GỢI Ý */
+
+/* ========================================
+   GỢI Ý
+======================================== */
+
 .hint {
   position: fixed;
+
   top: 7vh;
+
   width: 100%;
+
   text-align: center;
+
   font-size: 16px;
+
   color: #555;
-  z-index: 5;
+
+  z-index: 10;
+
+  transition: opacity .5s ease;
 }
 
-/* ===== PHONG BÌ ===== */
-/* ===== PHONG BÌ CON MÈO ===== */
+
+/* ========================================
+   PHONG BÌ CON MÈO
+======================================== */
 
 .cat-envelope {
+
   width: 250px;
   height: 230px;
+
   position: relative;
+
   cursor: pointer;
+
   z-index: 6;
+
+  transition:
+    transform .5s ease,
+    opacity .5s ease;
 }
 
-/* THÂN PHONG BÌ */
+
+/* ========================================
+   THÂN PHONG BÌ
+======================================== */
 
 .cat-envelope .body {
+
   position: absolute;
+
   left: 10px;
   bottom: 10px;
 
@@ -49,19 +94,57 @@ body {
   height: 145px;
 
   background: #fff;
-  border-radius: 0 0 22px 22px;
 
-  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+  border-radius:
+    0
+    0
+    22px
+    22px;
+
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.18);
 
   z-index: 2;
+
 }
 
-/* NẮP PHONG BÌ */
+
+/* ========================================
+   MẶT TRƯỚC PHONG BÌ
+======================================== */
+
+.cat-envelope .body::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 0;
+
+  border-left: 115px solid transparent;
+  border-right: 115px solid transparent;
+
+  border-bottom: 75px solid #f7dce5;
+
+  z-index: 2;
+
+}
+
+
+/* ========================================
+   NẮP PHONG BÌ
+======================================== */
 
 .cat-envelope .flap {
+
   position: absolute;
 
   left: 10px;
+
   bottom: 75px;
 
   width: 230px;
@@ -83,16 +166,25 @@ body {
   z-index: 5;
 }
 
-/* CLICK LẦN 1 */
+
+/* ========================================
+   MỞ PHONG BÌ
+======================================== */
 
 .cat-envelope.open .flap {
-  transform: rotateX(180deg);
+
+  transform:
+    rotateX(180deg);
+
 }
 
 
-/* ===== ĐẦU MÈO ===== */
+/* ========================================
+   ĐẦU MÈO
+======================================== */
 
 .cat-head {
+
   position: absolute;
 
   width: 105px;
@@ -103,44 +195,77 @@ body {
 
   background: #f3b7c9;
 
-  border-radius: 50% 50% 45% 45%;
+  border-radius:
+    50%
+    50%
+    45%
+    45%;
 
   z-index: 7;
 
-  transition: transform .5s ease;
+  transition:
+    transform .5s ease;
+
 }
 
-/* TAI */
+
+/* ========================================
+   TAI MÈO
+======================================== */
 
 .cat-ear {
+
   position: absolute;
 
   width: 42px;
   height: 48px;
 
-  background: #f3b7c9;
-
   top: -18px;
 
+  background: #f3b7c9;
+
   z-index: -1;
+
 }
+
 
 .ear-left {
+
   left: 2px;
+
   transform: rotate(-25deg);
-  border-radius: 8px 30px 8px 8px;
+
+  border-radius:
+    8px
+    30px
+    8px
+    8px;
+
 }
+
 
 .ear-right {
+
   right: 2px;
+
   transform: rotate(25deg);
-  border-radius: 30px 8px 8px 8px;
+
+  border-radius:
+    30px
+    8px
+    8px
+    8px;
+
 }
 
-/* TAI TRONG */
+
+/* ========================================
+   TAI TRONG
+======================================== */
 
 .ear-left::after,
 .ear-right::after {
+
   content: "";
 
   position: absolute;
@@ -148,72 +273,107 @@ body {
   width: 22px;
   height: 28px;
 
+  top: 10px;
+
   background: #e994b1;
 
-  top: 10px;
 }
+
 
 .ear-left::after {
+
   left: 9px;
-  transform: rotate(5deg);
+
+  transform:
+    rotate(5deg);
+
 }
+
 
 .ear-right::after {
+
   right: 9px;
-  transform: rotate(-5deg);
+
+  transform:
+    rotate(-5deg);
+
 }
 
 
-/* ===== MẶT ===== */
+/* ========================================
+   MẶT MÈO
+======================================== */
 
 .cat-face {
+
   position: absolute;
 
   inset: 0;
+
 }
 
-/* MẮT */
+
+/* ========================================
+   MẮT
+======================================== */
 
 .cat-eye {
+
   position: absolute;
 
   width: 9px;
   height: 13px;
 
+  top: 39px;
+
   background: #333;
 
   border-radius: 50%;
 
-  top: 39px;
 }
+
 
 .eye-left {
+
   left: 28px;
+
 }
+
 
 .eye-right {
+
   right: 28px;
+
 }
 
-/* MŨI */
+
+/* ========================================
+   MŨI
+======================================== */
 
 .cat-nose {
+
   position: absolute;
 
   width: 9px;
   height: 7px;
 
+  left: 48px;
+  top: 53px;
+
   background: #d47b98;
 
   border-radius: 50%;
 
-  left: 48px;
-  top: 53px;
 }
 
-/* MIỆNG */
+
+/* ========================================
+   MIỆNG
+======================================== */
 
 .cat-mouth {
+
   position: absolute;
 
   width: 14px;
@@ -222,15 +382,24 @@ body {
   left: 45px;
   top: 60px;
 
-  border-bottom: 2px solid #7d4b5c;
+  border-bottom:
+    2px solid #7d4b5c;
 
-  border-radius: 0 0 50% 50%;
+  border-radius:
+    0
+    0
+    50%
+    50%;
+
 }
 
 
-/* RIA */
+/* ========================================
+   RIA
+======================================== */
 
 .whisker {
+
   position: absolute;
 
   width: 30px;
@@ -239,88 +408,133 @@ body {
   background: #a76b7d;
 
   top: 58px;
+
 }
+
 
 .w1 {
+
   left: 2px;
-  transform: rotate(10deg);
+
+  transform:
+    rotate(10deg);
+
 }
+
 
 .w2 {
+
   left: 2px;
+
   top: 66px;
-  transform: rotate(-5deg);
+
+  transform:
+    rotate(-5deg);
+
 }
+
 
 .w3 {
+
   right: 2px;
-  transform: rotate(-10deg);
+
+  transform:
+    rotate(-10deg);
+
 }
+
 
 .w4 {
+
   right: 2px;
+
   top: 66px;
-  transform: rotate(5deg);
+
+  transform:
+    rotate(5deg);
+
 }
 
 
-/* ===== CHÂN MÈO ===== */
+/* ========================================
+   CHÂN MÈO
+======================================== */
 
 .cat-paw {
-  position: absolute;
 
-  font-size: 25px;
+  position: absolute;
 
   bottom: 22px;
 
+  font-size: 25px;
+
   z-index: 8;
 
-  transition: transform .5s ease;
+  transition:
+    transform .5s ease;
+
 }
+
 
 .paw-left {
+
   left: 32px;
+
 }
+
 
 .paw-right {
+
   right: 32px;
+
 }
 
 
-/* ===== GỢI Ý ===== */
-
-.hint {
-  transition: opacity .5s ease;
-}
-
-
-/* ===== HOA ===== */
+/* ========================================
+   HOA
+======================================== */
 
 #flowerLayer {
+
   position: fixed;
 
   inset: 0;
 
-  z-index: 50;
-
-  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
 
   overflow: hidden;
+
+  pointer-events: none;
 
   display: none;
 
   opacity: 1;
 
-  background: transparent;
+  z-index: 50;
+
+  background:
+    rgba(253,236,239,.15);
+
 }
+
 
 #flowerLayer.fade-out {
+
   opacity: 0;
 
-  transition: opacity 1s ease;
+  transition:
+    opacity 1s ease;
+
 }
 
+
+/* ========================================
+   TỪNG BÔNG HOA
+======================================== */
+
 .flower {
+
   position: absolute;
 
   left: 50%;
@@ -328,12 +542,12 @@ body {
 
   font-size: var(--size);
 
+  opacity: 0;
+
   transform:
     translate(-50%, -50%)
-    scale(.2)
+    scale(.15)
     rotate(0deg);
-
-  opacity: 0;
 
   animation:
     flowerBurst
@@ -341,31 +555,54 @@ body {
     cubic-bezier(.15,.7,.2,1)
     forwards;
 
-  animation-delay: var(--delay);
+  animation-delay:
+    var(--delay);
 
   filter:
-    drop-shadow(0 5px 7px rgba(0,0,0,.12));
+    drop-shadow(
+      0
+      5px
+      7px
+      rgba(0,0,0,.12)
+    );
+
 }
+
+
+/* ========================================
+   ANIMATION HOA
+======================================== */
 
 @keyframes flowerBurst {
 
   0% {
+
     opacity: 0;
+
     transform:
       translate(-50%, -50%)
-      scale(.2)
+      scale(.15)
       rotate(0deg);
+
   }
 
-  15% {
+
+  12% {
+
     opacity: 1;
+
   }
+
 
   65% {
+
     opacity: 1;
+
   }
 
+
   100% {
+
     opacity: 1;
 
     transform:
@@ -375,126 +612,276 @@ body {
       )
       scale(1)
       rotate(var(--rotate));
+
   }
+
 }
 
-/* hoa phủ kín màn hình */
 
-#flowerLayer.full {
-  background: rgba(253,236,239,.35);
-}
+/* ========================================
+   ẢNH
+======================================== */
 
-/* ===== ẢNH ===== */
 #viewer {
+
   position: fixed;
+
   inset: 0;
+
   margin: auto;
+
   max-width: 88vw;
   max-height: 82vh;
+
   object-fit: contain;
+
   opacity: 0;
-  transform: scale(0.97);
-  transition: opacity 1s ease, transform 1s ease;
+
+  transform:
+    scale(.97);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+
   display: none;
+
   z-index: 10;
+
 }
+
 
 #viewer.show {
+
   opacity: 1;
-  transform: scale(1);
+
+  transform:
+    scale(1);
+
 }
 
-/* ===== CÂU HỎI ===== */
+
+/* ========================================
+   HỘP CÂU HỎI
+======================================== */
+
 .question-box {
+
   position: fixed;
+
   inset: 0;
-  background: rgba(0,0,0,0.55);
+
+  background:
+    rgba(0,0,0,.55);
+
   display: none;
+
   justify-content: center;
+
   align-items: center;
+
   z-index: 20;
+
 }
+
 
 .question-card {
-  background: linear-gradient(135deg, #fdecef, #f6d8e7);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fdecef,
+      #f6d8e7
+    );
+
   border-radius: 26px;
-  padding: 26px 22px 30px;
+
+  padding:
+    26px
+    22px
+    30px;
+
   width: 82vw;
+
   max-width: 340px;
+
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  animation: fadeUp 0.6s ease;
+
+  box-shadow:
+    0 20px 40px
+    rgba(0,0,0,.25);
+
+  animation:
+    fadeUp
+    .6s
+    ease;
+
 }
+
 
 @keyframes fadeUp {
+
   from {
+
     opacity: 0;
-    transform: translateY(20px) scale(0.97);
+
+    transform:
+      translateY(20px)
+      scale(.97);
+
   }
+
+
   to {
+
     opacity: 1;
-    transform: translateY(0) scale(1);
+
+    transform:
+      translateY(0)
+      scale(1);
+
   }
+
 }
+
+
+/* ========================================
+   ẢNH TRONG CÂU HỎI
+======================================== */
 
 .butterfly {
+
   width: 120px;
+
   margin-bottom: 18px;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+
+  filter:
+    drop-shadow(
+      0
+      6px
+      12px
+      rgba(0,0,0,.25)
+    );
+
 }
+
+
+/* ========================================
+   CHỮ CÂU HỎI
+======================================== */
 
 .question-text {
+
   font-size: 18px;
+
   color: #7a3e6d;
+
   margin-bottom: 22px;
+
 }
+
+
+/* ========================================
+   BUTTON
+======================================== */
 
 .buttons {
+
   display: flex;
+
   justify-content: center;
+
   gap: 18px;
+
 }
+
 
 .buttons button {
-  padding: 12px 30px;
+
+  padding:
+    12px
+    30px;
+
   border-radius: 26px;
+
   border: none;
+
   font-size: 15px;
+
 }
+
 
 #yesBtn {
-  background: linear-gradient(135deg, #f4b6c2, #e89ac7);
+
+  background:
+    linear-gradient(
+      135deg,
+      #f4b6c2,
+      #e89ac7
+    );
+
   color: #fff;
+
+  cursor: pointer;
+
 }
+
 
 #noBtn {
+
   background: #e0c9d6;
+
   color: #a58aa0;
+
 }
 
-/* ===== LỜI KẾT ===== */
+
+/* ========================================
+   LỜI KẾT
+======================================== */
+
 .final-box {
+
   position: fixed;
+
   inset: 0;
+
   background: #fdecef;
+
   display: none;
+
   flex-direction: column;
+
   justify-content: center;
+
   align-items: center;
+
   text-align: center;
+
   z-index: 30;
+
   padding: 24px;
+
 }
+
 
 .final-box img {
+
   max-width: 80vw;
+
   max-height: 58vh;
+
   margin-bottom: 20px;
+
 }
+
 
 .final-box p {
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-}
 
+  font-size: 16px;
+
+  color: #333;
+
+  line-height: 1.6;
+
+}
