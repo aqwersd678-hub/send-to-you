@@ -28,33 +28,360 @@ body {
 }
 
 /* ===== PHONG BÌ ===== */
-.envelope {
-  width: 230px;
-  height: 150px;
+/* ===== PHONG BÌ CON MÈO ===== */
+
+.cat-envelope {
+  width: 250px;
+  height: 230px;
   position: relative;
   cursor: pointer;
   z-index: 6;
 }
 
-.envelope .body {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
-}
+/* THÂN PHONG BÌ */
 
-.envelope .flap {
+.cat-envelope .body {
   position: absolute;
-  inset: 0;
-  background: #f8c8d8;
-  clip-path: polygon(0 0, 50% 58%, 100% 0);
-  transform-origin: top;
-  transition: transform 1s ease;
+  left: 10px;
+  bottom: 10px;
+
+  width: 230px;
+  height: 145px;
+
+  background: #fff;
+  border-radius: 0 0 22px 22px;
+
+  box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+
+  z-index: 2;
 }
 
-.envelope.open .flap {
+/* NẮP PHONG BÌ */
+
+.cat-envelope .flap {
+  position: absolute;
+
+  left: 10px;
+  bottom: 75px;
+
+  width: 230px;
+  height: 115px;
+
+  background: #f8c8d8;
+
+  clip-path: polygon(
+    0 0,
+    50% 70%,
+    100% 0
+  );
+
+  transform-origin: top center;
+
+  transition:
+    transform 1s cubic-bezier(.2,.8,.2,1);
+
+  z-index: 5;
+}
+
+/* CLICK LẦN 1 */
+
+.cat-envelope.open .flap {
   transform: rotateX(180deg);
+}
+
+
+/* ===== ĐẦU MÈO ===== */
+
+.cat-head {
+  position: absolute;
+
+  width: 105px;
+  height: 95px;
+
+  left: 72px;
+  top: 8px;
+
+  background: #f3b7c9;
+
+  border-radius: 50% 50% 45% 45%;
+
+  z-index: 7;
+
+  transition: transform .5s ease;
+}
+
+/* TAI */
+
+.cat-ear {
+  position: absolute;
+
+  width: 42px;
+  height: 48px;
+
+  background: #f3b7c9;
+
+  top: -18px;
+
+  z-index: -1;
+}
+
+.ear-left {
+  left: 2px;
+  transform: rotate(-25deg);
+  border-radius: 8px 30px 8px 8px;
+}
+
+.ear-right {
+  right: 2px;
+  transform: rotate(25deg);
+  border-radius: 30px 8px 8px 8px;
+}
+
+/* TAI TRONG */
+
+.ear-left::after,
+.ear-right::after {
+  content: "";
+
+  position: absolute;
+
+  width: 22px;
+  height: 28px;
+
+  background: #e994b1;
+
+  top: 10px;
+}
+
+.ear-left::after {
+  left: 9px;
+  transform: rotate(5deg);
+}
+
+.ear-right::after {
+  right: 9px;
+  transform: rotate(-5deg);
+}
+
+
+/* ===== MẶT ===== */
+
+.cat-face {
+  position: absolute;
+
+  inset: 0;
+}
+
+/* MẮT */
+
+.cat-eye {
+  position: absolute;
+
+  width: 9px;
+  height: 13px;
+
+  background: #333;
+
+  border-radius: 50%;
+
+  top: 39px;
+}
+
+.eye-left {
+  left: 28px;
+}
+
+.eye-right {
+  right: 28px;
+}
+
+/* MŨI */
+
+.cat-nose {
+  position: absolute;
+
+  width: 9px;
+  height: 7px;
+
+  background: #d47b98;
+
+  border-radius: 50%;
+
+  left: 48px;
+  top: 53px;
+}
+
+/* MIỆNG */
+
+.cat-mouth {
+  position: absolute;
+
+  width: 14px;
+  height: 8px;
+
+  left: 45px;
+  top: 60px;
+
+  border-bottom: 2px solid #7d4b5c;
+
+  border-radius: 0 0 50% 50%;
+}
+
+
+/* RIA */
+
+.whisker {
+  position: absolute;
+
+  width: 30px;
+  height: 1px;
+
+  background: #a76b7d;
+
+  top: 58px;
+}
+
+.w1 {
+  left: 2px;
+  transform: rotate(10deg);
+}
+
+.w2 {
+  left: 2px;
+  top: 66px;
+  transform: rotate(-5deg);
+}
+
+.w3 {
+  right: 2px;
+  transform: rotate(-10deg);
+}
+
+.w4 {
+  right: 2px;
+  top: 66px;
+  transform: rotate(5deg);
+}
+
+
+/* ===== CHÂN MÈO ===== */
+
+.cat-paw {
+  position: absolute;
+
+  font-size: 25px;
+
+  bottom: 22px;
+
+  z-index: 8;
+
+  transition: transform .5s ease;
+}
+
+.paw-left {
+  left: 32px;
+}
+
+.paw-right {
+  right: 32px;
+}
+
+
+/* ===== GỢI Ý ===== */
+
+.hint {
+  transition: opacity .5s ease;
+}
+
+
+/* ===== HOA ===== */
+
+#flowerLayer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 50;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  display: none;
+
+  opacity: 1;
+
+  background: transparent;
+}
+
+#flowerLayer.fade-out {
+  opacity: 0;
+
+  transition: opacity 1s ease;
+}
+
+.flower {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  font-size: var(--size);
+
+  transform:
+    translate(-50%, -50%)
+    scale(.2)
+    rotate(0deg);
+
+  opacity: 0;
+
+  animation:
+    flowerBurst
+    1.8s
+    cubic-bezier(.15,.7,.2,1)
+    forwards;
+
+  animation-delay: var(--delay);
+
+  filter:
+    drop-shadow(0 5px 7px rgba(0,0,0,.12));
+}
+
+@keyframes flowerBurst {
+
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(.2)
+      rotate(0deg);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      scale(1)
+      rotate(var(--rotate));
+  }
+}
+
+/* hoa phủ kín màn hình */
+
+#flowerLayer.full {
+  background: rgba(253,236,239,.35);
 }
 
 /* ===== ẢNH ===== */
